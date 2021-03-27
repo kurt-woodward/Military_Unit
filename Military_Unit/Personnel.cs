@@ -12,41 +12,44 @@ namespace Military_Unit
         //public abstract string GetRank();
         //public abstract bool AnnualTraining();
         //
-        public static Random rand = new Random();
+        //private static Random rand = new Random();
         public bool IsComplete {get; set; }
-        public static string LastName { get; set; }
-        public abstract string GetRank { get; set; }
+        public virtual string LastName { get => familyName[Rand.Next(0, familyName.Length - 1)]; }
+        public virtual string Rank { get; }
         public abstract bool AnnualTraining { get; set; }
-        
-        // Feeds into GetRank() in subclasses
-        public static string[][] personRank = new string[][] {
-            // List of officer ranks
-            new string[]{
-             "General",
-             "Colonel",
-             "Lt Colonel",
-             "Major",
-             "Captain",
-             "First Lt",
-             "Second Lt",
-             "Cadet"
-            },
-            // List of enlisted ranks
-            new string[]{
-             "Sergeant Major",
-             "Master Gunnery Sergeant",
-             "First Sergeant",
-             "Master Sergeant",
-             "Gunnery Sergeant",
-             "Staff Sergeant",
-             "Sergeant",
-             "Corporal",
-             "Lance Corporal",
-             "Private First Class",
-             "Private",
-             "Recruit"
-            } };
-        public static string[] familyName =
+        public static Random Rand { get => rand; }
+
+        private static Random rand = new Random();
+
+        // Feeds into GetRank()
+        //private static string[][] personRank = new string[][] {
+        //    // List of officer ranks
+        //    new string[]{
+        //     "General",
+        //     "Colonel",
+        //     "Lt Colonel",
+        //     "Major",
+        //     "Captain",
+        //     "First Lt",
+        //     "Second Lt",
+        //     "Cadet"
+        //    },
+        //    // List of enlisted ranks
+        //    new string[]{
+        //     "Sergeant Major",
+        //     "Master Gunnery Sergeant",
+        //     "First Sergeant",
+        //     "Master Sergeant",
+        //     "Gunnery Sergeant",
+        //     "Staff Sergeant",
+        //     "Sergeant",
+        //     "Corporal",
+        //     "Lance Corporal",
+        //     "Private First Class",
+        //     "Private",
+        //     "Recruit"
+        //    } };
+        private static string[] familyName =
         {
             // List of random last names
             "Starcks",
@@ -116,15 +119,27 @@ namespace Military_Unit
 
         public static string Speech()
         {
-            string catchPhrase = stockPhrases[rand.Next(0, stockPhrases.Length - 1)];
+            string catchPhrase = stockPhrases[Rand.Next(0, stockPhrases.Length - 1)];
             return catchPhrase;
         }
 
-        public static string GetLastName()
-        {
-            return LastName = familyName[rand.Next(0, familyName.Length - 1)];
-        }
+        //public static string GetLastName()
+        //{
+        //    return familyName[Rand.Next(0, familyName.Length - 1)];
+        //}
 
+        //public static string GetRank(int cat = 0)
+        //{
+        //    if (cat == 1)
+        //    {
+        //        return personRank[0][rand.Next(0, personRank[0].Length - 1)];
+        //    }
+        //    else
+        //    {
+        //        return personRank[1][rand.Next(0, personRank[0].Length - 1)];
+        //    }
+
+        //}
 
     }
 }

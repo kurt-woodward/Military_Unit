@@ -22,7 +22,7 @@ namespace Military_Unit
             Officers OpsO = new Officers();
             Osprey C7V6 = new Osprey();
             HowManyToMake(1, "pistols");
-            Console.WriteLine($"{C7V6.GroupDesignator} Commander {OpsO.GetRank} {Officers.GetLastName()} {C7V6.Movement} in their {C7V6.VehicleDesignator} says:\n\"{Officers.Speech()}\" Their pistol serial number is {Pistols.WeaponSerial}. Their pistol is {Pistols.isClean()}. They fire their pistol in self defense!");
+            Console.WriteLine($"{C7V6.GroupDesignator} Commander {OpsO.Rank} {OpsO.LastName} {C7V6.Movement} in their {C7V6.VehicleDesignator} says:\n\"{Officers.Speech()}\" Their pistol serial number is {Pistols.WeaponSerial}. Their pistol is {Pistols.isClean()}. They fire their pistol in self defense!");
             Pistols.HasBeenFired = true;
             Console.WriteLine($"Their pistol is now {Pistols.isClean()}.");
 
@@ -30,7 +30,7 @@ namespace Military_Unit
             Troops NCOIC = new Troops();
             HowManyToMake(1, "rifles");
             Humvee H24838 = new Humvee();
-            Console.WriteLine($"{H24838.GroupDesignator} NCOIC {NCOIC.GetRank} {Troops.GetLastName()} says:\n\"{Troops.Speech()}\" as they go {H24838.Movement} around in their {H24838.VehicleDesignator}. Their rifle's serial number is {Rifles.WeaponSerial}. Their rifle is {Rifles.isClean()}.");
+            Console.WriteLine($"{H24838.GroupDesignator} NCOIC {NCOIC.Rank} {NCOIC.LastName} says:\n\"{Troops.Speech()}\" as they go {H24838.Movement} around in their {H24838.VehicleDesignator}. Their rifle's serial number is {Rifles.WeaponSerial}. Their rifle is {Rifles.isClean()}.");
 
             //A super complicated way of generating instances of each type of weapon given the number and type of weapon to make. 
             string[] HowManyToMake(int numToMake, string weaponToMake)

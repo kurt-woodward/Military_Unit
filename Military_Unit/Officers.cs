@@ -4,17 +4,35 @@ using System.Text;
 
 namespace Military_Unit
 {
+
     class Officers : Personnel
     {
-        public override string GetRank { get => personRank [0][rand.Next(0, personRank[0].Length - 1)]; set => throw new NotImplementedException(); }
         public override bool AnnualTraining { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public override string Rank { get => oRank[Rand.Next(0, oRank.Length - 1)];}
+        
+
+        private string[] oRank = new string[]
+        {
+                // List of officer ranks
+                 "General",
+                 "Colonel",
+                 "Lt Colonel",
+                 "Major",
+                 "Captain",
+                 "First Lt",
+                 "Second Lt",
+                 "Cadet"
+        };
 
         public Officers()
         {
-            string rank = GetRank;
-            string name = GetLastName();
-            //Pistols officer_weapon = new Pistols();
+            string name = LastName;
+            string rank = Rank;
         }
+    }
+
+
+
 
         //public override string GetRank()
         //{
@@ -31,5 +49,5 @@ namespace Military_Unit
         //    }
         //    return IsComplete;
         //}
-    }
 }
+
