@@ -6,11 +6,17 @@ namespace Military_Unit
 {
     public abstract class Personnel
     {
-        public static bool IsComplete = false;
-
-        public static string lastName = "";
-
+        //public static bool IsComplete = false;
+        //
+        //public static string lastName = "";
+        //public abstract string GetRank();
+        //public abstract bool AnnualTraining();
+        //
         public static Random rand = new Random();
+        public bool IsComplete {get; set; }
+        public static string LastName { get; set; }
+        public abstract string GetRank { get; set; }
+        public abstract bool AnnualTraining { get; set; }
         
         // Feeds into GetRank() in subclasses
         public static string[][] personRank = new string[][] {
@@ -116,11 +122,9 @@ namespace Military_Unit
 
         public static string GetLastName()
         {
-            return lastName = familyName[rand.Next(0, familyName.Length - 1)];
+            return LastName = familyName[rand.Next(0, familyName.Length - 1)];
         }
 
-        public abstract string GetRank();
 
-        public abstract bool AnnualTraining();
     }
 }

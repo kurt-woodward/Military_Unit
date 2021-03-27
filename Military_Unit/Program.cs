@@ -22,13 +22,15 @@ namespace Military_Unit
             Officers OpsO = new Officers();
             Osprey C7V6 = new Osprey();
             HowManyToMake(1, "pistols");
-            Console.WriteLine($"{C7V6.GroupDesignator} Commander {OpsO.GetRank()} {Officers.GetLastName()} {C7V6.Movement} in their {C7V6.VehicleDesignator} says:\n\"{Officers.Speech()}\" Their pistol serial number is {Pistols.pistolSerial}. Their pistol is {Pistols.isPistolClean}.");
+            Console.WriteLine($"{C7V6.GroupDesignator} Commander {OpsO.GetRank} {Officers.GetLastName()} {C7V6.Movement} in their {C7V6.VehicleDesignator} says:\n\"{Officers.Speech()}\" Their pistol serial number is {Pistols.WeaponSerial}. Their pistol is {Pistols.isClean()}. They fire their pistol in self defense!");
+            Pistols.HasBeenFired = true;
+            Console.WriteLine($"Their pistol is now {Pistols.isClean()}.");
 
             Console.WriteLine();
             Troops NCOIC = new Troops();
             HowManyToMake(1, "rifles");
             Humvee H24838 = new Humvee();
-            Console.WriteLine($"{H24838.GroupDesignator} NCOIC {NCOIC.GetRank()} {Troops.GetLastName()} says:\n\"{Troops.Speech()}\" as they go {H24838.Movement} around in their {H24838.VehicleDesignator}. Their rifle's serial number is {Rifles.rifleSerial}. Their rifle is {Rifles.isRifleClean}.");
+            Console.WriteLine($"{H24838.GroupDesignator} NCOIC {NCOIC.GetRank} {Troops.GetLastName()} says:\n\"{Troops.Speech()}\" as they go {H24838.Movement} around in their {H24838.VehicleDesignator}. Their rifle's serial number is {Rifles.WeaponSerial}. Their rifle is {Rifles.isClean()}.");
 
             //A super complicated way of generating instances of each type of weapon given the number and type of weapon to make. 
             string[] HowManyToMake(int numToMake, string weaponToMake)
@@ -43,21 +45,21 @@ namespace Military_Unit
                     string sn = Weapons.GetSerial();
                     if (weaponToMake.ToLower() == "pistols")
                     {
-                        new Pistols(sn);
+                        new Pistols();
                         pistolInventory[i] = Pistols.WeaponSerial;
                         return pistolInventory;
 
                     }
                     else if (weaponToMake.ToLower() == "rifles")
                     {
-                        new Rifles(sn);
+                        new Rifles();
                         rifleInventory[i] = Rifles.WeaponSerial;
                         return rifleInventory;
 
                     }
                     else if (weaponToMake.ToLower() == "mk19s")
                     {
-                        new MK19s(sn);
+                        new MK19s();
                         mk19Inventory[i] = MK19s.WeaponSerial;
                         return mk19Inventory;
 
